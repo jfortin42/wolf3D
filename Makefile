@@ -6,7 +6,7 @@
 #    By: jfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 10:29:00 by jfortin           #+#    #+#              #
-#    Updated: 2016/03/18 18:07:20 by jfortin          ###   ########.fr        #
+#    Updated: 2016/03/24 17:46:48 by jfortin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ NAME = wolf3d
 
 MLX = -L minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
-SRC = key_biding.c \
+SRC = parse.c \
 		main.c \
-		utilities.c
+		print.c \
+		key_biding.c
 
 OBJ = $(SRC:.c=.o)
 
