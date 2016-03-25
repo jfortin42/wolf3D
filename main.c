@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 18:20:56 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/24 17:43:19 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/25 15:00:26 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	ft_init(t_env *e)
 	e->pos.y = 2;
 	e->dir.x = 1;
 	e->dir.y = 0;
-	e->wstart = 100;
-	e->wend = 300;
+	e->rplane.x = 0;
+	e->rplane.y = -0.80;
+	e->speed = 0.1;
 }
 
 int		main(int ac, char **av)
@@ -31,7 +32,7 @@ int		main(int ac, char **av)
 	t_env e;
 
 	e.check = 0;
-	ac != 2 ? ft_error("Number of argument incorrect") : ft_parse(&e, av[1]);
+	ac != 2 ? ft_error("Icorrect number of arguments") : ft_parse(&e, av[1]);
 	ft_init(&e);
 	mlx_string_put(e.mlx, e.win, 400, 250, 0xFF9933, WELCOME);
 	mlx_string_put(e.mlx, e.win, 450, 279, 0xFF9933, PRESS);

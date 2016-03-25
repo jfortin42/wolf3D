@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 17:06:23 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/24 17:45:57 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/25 15:19:18 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@
 # define KEYPRESSMASK (1L<<0)
 # define KEYRELEASEMASK (1L<<1)
 
-# define LEFT 65361
-# define RIGHT 65363
-# define UP 65362
-# define DOWN 65364
-# define PLUS 65451
-# define MINUS 65453
-# define STAR 65450
-# define SLASH 65455
-# define PAGE_UP 65365
-# define PAGE_DOWN 65366
-# define ZERO 65438
+# define LEFT 123
+# define RIGHT 124
+# define UP 126
+# define DOWN 125
+# define PLUS 69
+# define MINUS 78
+# define STAR 67
+# define SLASH 75
+# define PAGE_UP 116
+# define PAGE_DOWN 121
+# define ZERO 82
 # define ESC 53
 
 #define COLOR_SKY 0xA9EAFF
 #define COLOR_FLOOR 0x3A9D23
-#define COLOR_NORTH 0x123456
-#define COLOR_SOUTH 0x234567
-#define COLOR_EST 0x345678
-#define COLOR_WEST 0x456789
+#define COLOR_NORTH 0x048B9A
+#define COLOR_SOUTH 0xDD985C
+#define COLOR_EAST 0xA91101
+#define COLOR_WEST 0xEFD242
 
 
 # define WELCOME "Welcome to wolf3D by jfortin"
@@ -96,15 +96,28 @@ typedef struct		s_env
 	int				bpp;
 	int				endi;
 
+	double			camera;
+	int				wall;
+	int				hit;
 	t_dxy			pos;
 	t_dxy			dir;
-	t_dxy			plane;
+	t_dxy			rplane;
+	t_dxy			rpos;
+	t_dxy			rdir;
+	t_dxy			rdist;
+	t_dxy			rdisd;
+	t_xy			rmap;
+	t_xy			step;
+
 	int				wstart;
 	int				wend;
+	int				rh;
 
 	double			speed;
-	int				lr;
-	int				ud;
+	int				left;
+	int				right;
+	int				up;
+	int				down;
 
 }					t_env;
 
@@ -115,5 +128,10 @@ int					ft_key_hit(int keycode, t_env *e);
 int					ft_key_release(int keycode, t_env *e);
 int					ft_core(t_env *e);
 void				ft_disp_screen(t_env *e);
+void				ft_size_ray(t_env *e);
+void				ft_hit_ray(t_env *e);
+void				ft_direction_ray(t_env *e);
+void				ft_init_ray(t_env *e, int x);
+void				ft_move(t_env *e);
 
 #endif

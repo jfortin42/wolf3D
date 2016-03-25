@@ -6,7 +6,7 @@
 #    By: jfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 10:29:00 by jfortin           #+#    #+#              #
-#    Updated: 2016/03/24 17:46:48 by jfortin          ###   ########.fr        #
+#    Updated: 2016/03/25 14:30:43 by jfortin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ MLX = -L minilibx_macos -lmlx -framework OpenGL -framework AppKit
 SRC = parse.c \
 		main.c \
 		print.c \
+		calculs.c \
+		move.c \
 		key_biding.c
 
 OBJ = $(SRC:.c=.o)
