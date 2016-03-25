@@ -6,7 +6,7 @@
 #    By: jfortin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 10:29:00 by jfortin           #+#    #+#              #
-#    Updated: 2016/03/25 14:30:43 by jfortin          ###   ########.fr        #
+#    Updated: 2016/03/25 16:50:42 by jfortin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = parse.c \
 		print.c \
 		calculs.c \
 		move.c \
+		utilities.c \
 		key_biding.c
 
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 17:06:23 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 15:19:18 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/25 18:53:14 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,14 @@
 
 
 # define WELCOME "Welcome to wolf3D by jfortin"
-# define PRESS "Press any key to start"
+# define PRESS   "   Press any key to start   "
 
-# define CONTROLS "            CONTROLS"
-# define H_UP "     move up    |    up"
-# define H_DOWN "    move down   |   down"
-# define H_LEFT "    move left   |   left"
-# define H_RIGHT "   move right   |   right"
-# define H_PLUS "    zoom in     |     +"
-# define H_MINUS "    zoom out    |     -"
-# define H_STAR "increase height |     *"
-# define H_SLASH "decrease height |     /"
-# define H_PAGE_UP "   next colors  | page up"
-# define H_PAGE_DOWN "previous colors | page down"
-# define H_ZERO "     reset      |     0"
-# define H_ESC "  exit program  |    esc"
+# define CONTROLS    "            CONTROLS           "
+# define H_MOVE      "   shiftings : up down / W S   "
+# define H_ROTATE    "     rotate  : left right / A D"
+# define H_SPEED     "change speed :       +  -      "
+# define H_ZERO      "     reset   :       0         "
+# define H_ESC       "exit program :      esc        "
 
 # include "minilibx_macos/mlx.h"
 # include <fcntl.h>
@@ -114,10 +107,10 @@ typedef struct		s_env
 	int				rh;
 
 	double			speed;
-	int				left;
-	int				right;
 	int				up;
 	int				down;
+	int				left;
+	int				right;
 
 }					t_env;
 
@@ -133,5 +126,7 @@ void				ft_hit_ray(t_env *e);
 void				ft_direction_ray(t_env *e);
 void				ft_init_ray(t_env *e, int x);
 void				ft_move(t_env *e);
+void				ft_init(t_env *e);
+void				ft_settings(t_env e);
 
 #endif

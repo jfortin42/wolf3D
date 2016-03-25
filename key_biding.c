@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 17:43:54 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 15:23:10 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/25 18:52:26 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int		ft_key_hit(int keycode, t_env *e)
 		e->left = 1;
 	if (keycode == RIGHT)
 		e->right = 1;
+	if ((keycode == MINUS && e->speed > 0.02)
+			|| (keycode == PLUS && e->speed < 0.03))
+		e->speed += (keycode == PLUS ? 0.01 : -0.01);
+	if (keycode == ZERO)
+		ft_init(e);
 	if (keycode == ESC)
 		exit(1);
 	e->check = 1;
@@ -52,6 +57,6 @@ int		ft_core(t_env *e)
 	ft_move(e);
 	ft_disp_screen(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->im, 0, 0);
-	//ft_settings(e);
+	ft_settings(*e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:31:04 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 15:20:15 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/25 15:44:04 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ void	ft_disp_vert(t_env *e, int x)
 
 	y = 0;
 	while (y < e->wstart)
-	{
 		ft_put_pixel(e, x, y++, COLOR_SKY);
-	}
 	while (y >= e->wstart && y <= e->wend)
-	ft_put_pixel(e, x, y++, e->color);
+		ft_put_pixel(e, x, y++, e->color);
 	while (y < WIN_Y)
-	ft_put_pixel(e, x, y++, COLOR_FLOOR);
+		ft_put_pixel(e, x, y++, COLOR_FLOOR);
 }
 
 void	ft_disp_screen(t_env *e)
@@ -49,20 +47,9 @@ void	ft_disp_screen(t_env *e)
 		ft_hit_ray(e);
 		ft_size_ray(e);
 		if (e->wall == 0)
-		{
-			if (e->step.x < 0)
-				e->color = COLOR_NORTH;
-			else
-				e->color = COLOR_SOUTH;
-		}
+			e->color = (e->step.x < 0 ? COLOR_NORTH : COLOR_SOUTH);
 		else
-		{
-			if (e->step.y < 0)
-				e->color = COLOR_WEST;
-			else
-				e->color = COLOR_EAST;
-		}
-		ft_disp_vert(e, x);
-		++x;
+			e->color = (e->step.y > 0 ? COLOR_EAST : COLOR_WEST);
+		ft_disp_vert(e, x++);
 	}
 }
