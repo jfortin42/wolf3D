@@ -6,21 +6,29 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 17:06:23 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 18:53:14 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/26 16:47:44 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef WOLF3D_H
+# define WOLF3D_H
 
 # define WIN_X 1900
 # define WIN_Y 1080
+
+# define MAP1 "maps/map01.w3d"
+# define MAP2 "maps/map02.w3d"
+# define MAP3 "maps/map03.w3d"
 
 # define KEYPRESS 2
 # define KEYRELEASE 3
 # define KEYPRESSMASK (1L<<0)
 # define KEYRELEASEMASK (1L<<1)
 
+# define W 13
+# define S 1
+# define A 0
+# define D 2
 # define LEFT 123
 # define RIGHT 124
 # define UP 126
@@ -31,19 +39,26 @@
 # define SLASH 75
 # define PAGE_UP 116
 # define PAGE_DOWN 121
+# define NUM_ZERO 29
 # define ZERO 82
+# define ONE 18
+# define TWO 19
+# define THREE 20
 # define ESC 53
 
-#define COLOR_SKY 0xA9EAFF
-#define COLOR_FLOOR 0x3A9D23
-#define COLOR_NORTH 0x048B9A
-#define COLOR_SOUTH 0xDD985C
-#define COLOR_EAST 0xA91101
-#define COLOR_WEST 0xEFD242
+# define COLOR_SKY 0xA9EAFF
+# define COLOR_FLOOR 0x3A9D23
+# define COLOR_NORTH 0x048B9A
+# define COLOR_SOUTH 0xDD985C
+# define COLOR_EAST 0xA91101
+# define COLOR_WEST 0xEFD242
 
-
-# define WELCOME "Welcome to wolf3D by jfortin"
-# define PRESS   "   Press any key to start   "
+# define WELCOME    "Welcome to wolf3D by jfortin"
+# define CHOOSE     "  Choose a level to start   "
+# define LEVEL_KEY  "    LEVEL    |    KEY       "
+# define LEVEL1     "      1      |     1        "
+# define LEVEL2     "      2      |     2        "
+# define LEVEL3     "      3      |     3        "
 
 # define CONTROLS    "            CONTROLS           "
 # define H_MOVE      "   shiftings : up down / W S   "
@@ -72,6 +87,7 @@ typedef struct		s_dxy
 
 typedef struct		s_env
 {
+	char			*choice;
 	int				fd;
 	char			**line;
 	int				cnt_line;
@@ -114,6 +130,7 @@ typedef struct		s_env
 
 }					t_env;
 
+void				ft_welcome(t_env e);
 void				ft_parse(t_env *e, char *line);
 void				ft_put_help(t_env e);
 void				ft_put_pixel(t_env *e, int x, int y, int color);

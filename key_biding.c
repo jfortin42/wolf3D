@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 17:43:54 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 18:52:26 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/26 16:52:24 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,38 @@
 
 int		ft_key_hit(int keycode, t_env *e)
 {
-	if (keycode == UP)
+	if (!e->check && (keycode == ONE || keycode == TWO))
+		keycode == ONE ? ft_parse(e, MAP1) : ft_parse(e, MAP2);
+	if (!e->check && keycode == THREE)
+		ft_parse(e, MAP3);
+	if (keycode == UP || keycode == W)
 		e->up = 1;
-	if (keycode == DOWN)
+	if (keycode == DOWN || keycode == S)
 		e->down = 1;
-	if (keycode == LEFT)
+	if (keycode == LEFT || keycode == A)
 		e->left = 1;
-	if (keycode == RIGHT)
+	if (keycode == RIGHT || keycode == D)
 		e->right = 1;
 	if ((keycode == MINUS && e->speed > 0.02)
-			|| (keycode == PLUS && e->speed < 0.03))
+			|| (keycode == PLUS && e->speed < 0.3))
 		e->speed += (keycode == PLUS ? 0.01 : -0.01);
-	if (keycode == ZERO)
+	if (keycode == ZERO || keycode == NUM_ZERO)
 		ft_init(e);
 	if (keycode == ESC)
 		exit(1);
-	e->check = 1;
 	return (0);
 }
 
 int		ft_key_release(int keycode, t_env *e)
 {
-	if (keycode == UP)
+	if (keycode == UP || keycode == W)
 		e->up = 0;
-	if (keycode == DOWN)
+	if (keycode == DOWN || keycode == S)
 		e->down = 0;
-	if (keycode == LEFT)
+	if (keycode == LEFT || keycode == A)
 		e->left = 0;
-	if (keycode == RIGHT)
+	if (keycode == RIGHT || keycode == D)
 		e->right = 0;
-	if (keycode == ESC)
-		exit(1);
 	return (0);
 }
 

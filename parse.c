@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 16:03:19 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 13:43:37 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/26 15:27:06 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,12 @@ void	ft_parse(t_env *e, char *file)
 		++e->cnt_line;
 		nbr_col = -1;
 		while (e->line[++nbr_col])
-		{
 			e->map[e->cnt_line][nbr_col] = ft_atoi(e->line[nbr_col]);
-		}
 		if (nbr_col != e->cnt_col)
 			ft_error("invalid map");
 	}
 	++e->cnt_line;
+	e->check = 1;
 	// checking
 	int		x;
 	int		y;
