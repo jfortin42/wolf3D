@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:30:14 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/26 14:06:43 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/27 18:22:41 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_welcome(t_env e)
 	int	m_x;
 	int	m_y;
 
-	m_x = 750;
-	m_y = 450;
+	m_x = 510;
+	m_y = 300;
 	mlx_string_put(e.mlx, e.win, m_x, m_y, 0xFF9933, WELCOME);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 20, 0xFF9933, CHOOSE);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 50, 0xFF9933, LEVEL_KEY);
@@ -32,7 +32,7 @@ void	ft_settings(t_env e)
 	int	m_x;
 	int	m_y;
 
-	m_x = 1580;
+	m_x = 965;
 	m_y = 0;
 	mlx_string_put(e.mlx, e.win, m_x, m_y, 0xffffff, CONTROLS);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 16, 0xffffff, H_MOVE);

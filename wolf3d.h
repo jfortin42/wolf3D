@@ -6,19 +6,20 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 17:06:23 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/26 16:47:44 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/27 18:20:00 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
 
-# define WIN_X 1900
-# define WIN_Y 1080
+# define WIN_X 1280
+# define WIN_Y 720
 
 # define MAP1 "maps/map01.w3d"
 # define MAP2 "maps/map02.w3d"
 # define MAP3 "maps/map03.w3d"
+# define SKY "textures/sky.xpm"
 
 # define KEYPRESS 2
 # define KEYRELEASE 3
@@ -48,7 +49,7 @@
 
 # define COLOR_SKY 0xA9EAFF
 # define COLOR_FLOOR 0x3A9D23
-# define COLOR_NORTH 0x048B9A
+# define COLOR_NORTH 0x116CC7
 # define COLOR_SOUTH 0xDD985C
 # define COLOR_EAST 0xA91101
 # define COLOR_WEST 0xEFD242
@@ -85,6 +86,15 @@ typedef struct		s_dxy
 	double			y;
 }					t_dxy;
 
+typedef struct		s_img
+{
+	void			*im;
+	char			*imc;
+	int				imlen;
+	int				bpp;
+	int				endi;
+}					t_img;
+
 typedef struct		s_env
 {
 	char			*choice;
@@ -99,11 +109,8 @@ typedef struct		s_env
 	void			*win;
 	int				color;
 
-	void			*im;
-	char			*imc;
-	int				imlen;
-	int				bpp;
-	int				endi;
+	t_img			img;
+	t_img			sky;
 
 	double			camera;
 	int				wall;
@@ -127,7 +134,6 @@ typedef struct		s_env
 	int				down;
 	int				left;
 	int				right;
-
 }					t_env;
 
 void				ft_welcome(t_env e);

@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:31:04 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 15:44:04 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/27 17:42:48 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_put_pixel(t_env *e, int x, int y, int color)
 
 	if (y >= WIN_Y || x >= WIN_X || x < 0 || y < 0)
 		return ;
-	tmp = (int *)&e->imc[(y * e->imlen) + (x * (e->bpp / 8))];
+	tmp = (int *)&e->img.imc[(y * e->img.imlen) + (x * (e->img.bpp / 8))];
 	*tmp = color;
 }
 
@@ -28,7 +28,7 @@ void	ft_disp_vert(t_env *e, int x)
 
 	y = 0;
 	while (y < e->wstart)
-		ft_put_pixel(e, x, y++, COLOR_SKY);
+		ft_put_pixel(e, x, y++, 0xC00000A0);
 	while (y >= e->wstart && y <= e->wend)
 		ft_put_pixel(e, x, y++, e->color);
 	while (y < WIN_Y)

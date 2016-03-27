@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 17:43:54 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/26 16:52:24 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/27 17:13:32 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ int		ft_core(t_env *e)
 {
 	if (e->check == 0)
 		return (0);
-	mlx_destroy_image(e->mlx, e->im);
-	e->im = mlx_new_image(e->mlx, WIN_X, WIN_Y);
+	mlx_destroy_image(e->mlx, e->img.im);
+	e->img.im = mlx_new_image(e->mlx, WIN_X, WIN_Y);
 	ft_move(e);
 	ft_disp_screen(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->im, 0, 0);
+	mlx_put_image_to_window(e->mlx, e->win, e->sky.im, 0, 0);
+	mlx_put_image_to_window(e->mlx, e->win, e->img.im, 0, 0);
 	ft_settings(*e);
 	return (0);
 }
