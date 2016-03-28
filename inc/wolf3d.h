@@ -6,7 +6,7 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 17:06:23 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 18:20:00 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:52:20 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,19 @@
 # define LEVEL2     "      2      |     2        "
 # define LEVEL3     "      3      |     3        "
 
-# define CONTROLS    "            CONTROLS           "
-# define H_MOVE      "   shiftings : up down / W S   "
-# define H_ROTATE    "     rotate  : left right / A D"
-# define H_SPEED     "change speed :       +  -      "
-# define H_ZERO      "     reset   :       0         "
-# define H_ESC       "exit program :      esc        "
+# define CONTROLS    "         CONTROLS          "
+# define H_MOVE      "   shifting  : ^  v / W S  "
+# define H_MOVE2     "   shifting  : |  |        "
+# define H_ROTATE    "    rotate   : <- -> / A D "
+# define H_SPEED     "change speed :    +  -     "
+# define H_ZERO      "    reset    :     0       "
+# define H_ESC       "exit program :    esc      "
 
-# include "minilibx_macos/mlx.h"
+# include "../minilibx_macos/mlx.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <math.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct		s_xy
 {
@@ -137,19 +138,20 @@ typedef struct		s_env
 }					t_env;
 
 void				ft_welcome(t_env e);
+void				ft_settings(t_env e);
+
 void				ft_parse(t_env *e, char *line);
-void				ft_put_help(t_env e);
-void				ft_put_pixel(t_env *e, int x, int y, int color);
 int					ft_key_hit(int keycode, t_env *e);
 int					ft_key_release(int keycode, t_env *e);
 int					ft_core(t_env *e);
+
 void				ft_disp_screen(t_env *e);
 void				ft_size_ray(t_env *e);
-void				ft_hit_ray(t_env *e);
-void				ft_direction_ray(t_env *e);
 void				ft_init_ray(t_env *e, int x);
+void				ft_direction_ray(t_env *e);
+void				ft_hit_ray(t_env *e);
 void				ft_move(t_env *e);
 void				ft_init(t_env *e);
-void				ft_settings(t_env e);
+void				ft_draw_plan(t_env *e);
 
 #endif

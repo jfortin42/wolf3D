@@ -6,11 +6,11 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 17:43:54 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 17:13:32 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:01 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
 int		ft_key_hit(int keycode, t_env *e)
 {
@@ -57,6 +57,7 @@ int		ft_core(t_env *e)
 	e->img.im = mlx_new_image(e->mlx, WIN_X, WIN_Y);
 	ft_move(e);
 	ft_disp_screen(e);
+	ft_draw_plan(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->sky.im, 0, 0);
 	mlx_put_image_to_window(e->mlx, e->win, e->img.im, 0, 0);
 	ft_settings(*e);

@@ -6,11 +6,11 @@
 /*   By: cemonet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:36:31 by cemonet           #+#    #+#             */
-/*   Updated: 2016/03/26 16:25:01 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:21 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
 void	ft_rotate(t_env *e, int advance)
 {

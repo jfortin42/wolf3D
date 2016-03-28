@@ -6,11 +6,11 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 18:20:56 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 17:53:32 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:12 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
 void	ft_init(t_env *e)
 {
@@ -19,8 +19,8 @@ void	ft_init(t_env *e)
 
 	win_x = WIN_X;
 	win_y = WIN_Y / 2;
-	e->pos.x = 2.001;
-	e->pos.y = 2.001;
+	e->pos.x = 1.501;
+	e->pos.y = 1.501;
 	e->dir.x = 1;
 	e->dir.y = 0;
 	e->rplane.x = 0;

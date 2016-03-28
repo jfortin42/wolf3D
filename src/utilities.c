@@ -6,11 +6,11 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 16:30:14 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 18:22:41 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:52 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
 void	ft_welcome(t_env e)
 {
@@ -32,10 +32,11 @@ void	ft_settings(t_env e)
 	int	m_x;
 	int	m_y;
 
-	m_x = 965;
+	m_x = 1015;
 	m_y = 0;
 	mlx_string_put(e.mlx, e.win, m_x, m_y, 0xffffff, CONTROLS);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 16, 0xffffff, H_MOVE);
+	mlx_string_put(e.mlx, e.win, m_x, m_y + 16, 0xffffff, H_MOVE2);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 32, 0xffffff, H_ROTATE);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 48, 0xffffff, H_SPEED);
 	mlx_string_put(e.mlx, e.win, m_x, m_y + 64, 0xffffff, H_ZERO);

@@ -6,13 +6,13 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/11 16:03:19 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 19:07:35 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:36 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
-void	ft_freestr2d(t_env *e)
+static void	ft_freestr2d(t_env *e)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ void	ft_freestr2d(t_env *e)
 	free(e->line);
 }
 
-int		ft_split_line(t_env *e)
+static int	ft_split_line(t_env *e)
 {
 	char	*line;
 	int		ret;
@@ -38,10 +38,12 @@ int		ft_split_line(t_env *e)
 		free(line);
 		++ret;
 	}
+	else
+		free(line);
 	return (ret);
 }
 
-void	ft_int2d(t_env *e, char *file)
+static void	ft_int2d(t_env *e, char *file)
 {
 	char	*line;
 	int		len;
@@ -70,7 +72,7 @@ void	ft_int2d(t_env *e, char *file)
 	}
 }
 
-void	ft_parse(t_env *e, char *file)
+void		ft_parse(t_env *e, char *file)
 {
 	int	nbr_col;
 
@@ -96,20 +98,4 @@ void	ft_parse(t_env *e, char *file)
 	}
 	++e->cnt_line;
 	e->check = 1;
-	// checking
-	int		x;
-	int		y;
-	y = 0;
-	while (y < e->cnt_line)
-	{
-		x = 0;
-		while (x < e->cnt_col)
-		{
-			ft_putnbr(e->map[y][x]);
-			ft_putchar(' ');
-			++x;
-		}
-		ft_putchar('\n');
-		++y;
-	}
 }

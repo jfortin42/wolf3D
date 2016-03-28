@@ -6,11 +6,11 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/25 10:23:53 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/25 13:44:25 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:49:46 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
 void	ft_init_ray(t_env *e, int x)
 {

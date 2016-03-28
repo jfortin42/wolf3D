@@ -6,13 +6,13 @@
 /*   By: jfortin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:31:04 by jfortin           #+#    #+#             */
-/*   Updated: 2016/03/27 17:42:48 by jfortin          ###   ########.fr       */
+/*   Updated: 2016/03/28 16:50:44 by jfortin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf3d.h"
+#include "../inc/wolf3d.h"
 
-void	ft_put_pixel(t_env *e, int x, int y, int color)
+static void	ft_put_pixel(t_env *e, int x, int y, int color)
 {
 	int	*tmp;
 
@@ -22,7 +22,7 @@ void	ft_put_pixel(t_env *e, int x, int y, int color)
 	*tmp = color;
 }
 
-void	ft_disp_vert(t_env *e, int x)
+static void	ft_disp_vert(t_env *e, int x)
 {
 	int	y;
 
@@ -35,7 +35,7 @@ void	ft_disp_vert(t_env *e, int x)
 		ft_put_pixel(e, x, y++, COLOR_FLOOR);
 }
 
-void	ft_disp_screen(t_env *e)
+void		ft_disp_screen(t_env *e)
 {
 	int	x;
 
@@ -51,5 +51,45 @@ void	ft_disp_screen(t_env *e)
 		else
 			e->color = (e->step.y > 0 ? COLOR_EAST : COLOR_WEST);
 		ft_disp_vert(e, x++);
+	}
+}
+
+static void	ft_draw_plan_coord(t_env *e, int x, int y, int color)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i <= 5)
+	{
+		j = -1;
+		while (++j <= 5)
+			ft_put_pixel(e, x + i, y + j, color);
+	}
+}
+
+void		ft_draw_plan(t_env *e)
+{
+	int	i;
+	int	j;
+
+	if (e->cnt_col * 5 > WIN_X / 2 || e->cnt_line * 5 > WIN_Y / 2)
+		return ;
+	i = -1;
+	while (++i < e->cnt_col)
+	{
+		j = -1;
+		while (++j < e->cnt_line)
+		{
+			if (e->map[j][i] == 1)
+				ft_draw_plan_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+						0x000000);
+			else if ((int)e->pos.x == j && (int)e->pos.y == i)
+				ft_draw_plan_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+						0xFF0000);
+			else
+				ft_draw_plan_coord(e, i + (5 * (i + 1)), j + (5 * (j + 1)),
+						0xFFFFFF);
+		}
 	}
 }
