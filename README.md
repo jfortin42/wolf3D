@@ -1,6 +1,6 @@
 # wolf3D
 
-Wolf3D is a program developped for my learning course at 42 school for the exploration of raycasting.
+Wolf3D is a 42 project designed to help students explore the concepts behind raycasting.
 <img align="center" src="http://image.noelshack.com/fichiers/2016/46/1479405051-wolf3d-42.png" width="100%" />
 Several options are available (see [Shortcuts](https://github.com/jfortin42/wolf3d#shortcuts) section for more info)
 * Move within the scene
@@ -28,7 +28,7 @@ You have the choice between three different levels.<br />
 </thead>
 <tbody>
 <tr>
-<td valign="top" height="30px">Close the program</td>
+<td valign="top" height="30px">Exit program</td>
 <td valign="top" align="center"><kbd>&nbsp;esc&nbsp;</kbd></td>
 </tr>
 <tr>
@@ -46,4 +46,4 @@ You have the choice between three different levels.<br />
 </tbody>
 </table>
 ## Contact & contribute
-If you want to contact me, or fix/improve wolf3D, just send me a mail at **jfortin@student.42.fr**
+To contact me, or fix/improve wolf3D, feel free to send me an email at **jfortin@student.42.fr**
